@@ -1,7 +1,10 @@
-FROM ubuntu:18.04
-RUN apt-get update && apt-get install -y wget openjdk-8-jdk
-RUN wget -O minecraft_server.jar \
-https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
-RUN echo "eula=true" > eula.txt
-CMD java -Xms4096m -Xmx4096m -jar minecraft_server.jar nogui
+FROM openjdk:8-jre
+
+ARG VERSION
+COPY ./versions.txt /
+RUN wget -O /server.jar \
+    $(cat /versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $2}')
+
+WORKDIR /home
+CMD java -Xms${Xms} -Xmx${Xmx} -jar /server.jar nogui
 EXPOSE 25565

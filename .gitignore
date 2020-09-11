@@ -1,0 +1,7 @@
+/.vscode/
+/logs/
+eula.txt
+server.properties
+crash-reports
+world
+*.json

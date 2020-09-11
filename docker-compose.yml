@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  minecraft:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: "1.13"
+    volumes:
+      - ./:/home/
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    user: "${SUDO_UID:-$UID}:${SUDO_GID:-$GID}"
+    ports:
+      - "25565:25565"
+    environment:
+      - "Xms=4g"
+      - "Xmx=16g"
