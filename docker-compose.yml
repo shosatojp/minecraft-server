@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VERSION: "1.13"
+        VERSION: "1.16.3"
     volumes:
       - ./:/home/
       - /etc/passwd:/etc/passwd:ro
