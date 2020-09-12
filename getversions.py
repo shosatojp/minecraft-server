@@ -29,11 +29,14 @@ def get_versions():
 def get_forge_version(version: str):
     html = requests.get(f'http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_{version}.html').text
     doc = bs4.BeautifulSoup(html, 'html.parser')
-    latest = doc.select_one('.link > a[title=Installer]')
-    if latest:
-        direct = re.match('.*url=(.*)$', latest.get('href'))[1]
-        return direct
-
+    installer = doc.select_one('.link > a[title=Installer]')
+    universal = doc.select_one('.link > a[title=Universal]')
+    if installer and universal:
+        installer_direct = re.match('.*url=(.*)$', installer.get('href'))[1]
+        universal_direct = re.match('.*url=(.*)$', universal.get('href'))[1]
+        return installer_direct, universal_direct
+    else:
+        return None, None
 
 def get_forge_versions():
     html = requests.get('http://files.minecraftforge.net/').text
@@ -41,10 +44,10 @@ def get_forge_versions():
     versions = [e.text.strip() for e
                 in doc.select('.li-version-list li')]
     for version in versions:
-        link = get_forge_version(version)
-        if link:
+        installer, universal = get_forge_version(version)
+        if installer and universal:
             with open('versions.txt', 'at', encoding='utf-8') as f:
-                f.write(f'forge-{version} {link}\n')
+                f.write(f'forge-{version} {universal} {installer}\n')
 
 
 get_versions()

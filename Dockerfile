@@ -6,13 +6,11 @@ RUN apk update && \
 
 WORKDIR /data
 COPY ./versions.txt .
-RUN cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $2}' > url.txt
-RUN wget -O download.jar `cat url.txt`
-RUN if [ "$(echo `cat url.txt` | grep installer)" ];then    \
-        java -jar download.jar nogui -installServer;        \
-        mv minecraft_server.*.jar server.jar;               \
-    else                                                    \
-        mv download.jar server.jar;                         \
+RUN wget -O server.jar "$(cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $2}')"
+RUN if [ "$(echo $VERSION | grep forge)" ];then    \
+        wget -O installer.jar "$(cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $3}')"; \
+        java -jar installer.jar nogui -installServer;        \
+        rm installer.jar;                   \
     fi
 
 WORKDIR /home

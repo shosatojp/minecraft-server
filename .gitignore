@@ -1,3 +1,9 @@
 /.vscode/
 /logs/
 crash-reports
+/config/
+/mods/
+/world/
+*.json
+eula.txt
+server.properties
