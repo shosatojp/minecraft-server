@@ -15,7 +15,7 @@ rm -rf .git .gitignore
 
 ### 1. Edit `docker-compose.yml` to specify **VERSION** (and memory usage).
 
-Available versions can found in [versions.txt](./versions.txt)
+Available versions can be found in [versions.txt](./versions.txt)
 
 Example: `1.16.3` , `forge-1.16.3`
 
