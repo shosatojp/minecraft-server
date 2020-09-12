@@ -1,8 +1,6 @@
 import re
-from sys import version
 import requests
 import bs4
-from requests.api import request
 
 
 def get_download_link(version: str) -> str:
