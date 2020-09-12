@@ -97,6 +97,8 @@ sudo docker-compose start
 
 ## Backup world data with Git
 
+* backup
+
 ```sh
 # create repository `yourname/my-server`
 git init
@@ -105,4 +107,12 @@ echo -e '/logs/\n/crash-reports/' >> '.gitignore'
 git add .
 git commit -m 'create server'
 git push --set-upstream master origin
+```
+
+* restore
+
+```sh
+git clone https://github.com/yourname/my-server
+cd ./my-server
+sudo docker-compose up --build -d
 ```
