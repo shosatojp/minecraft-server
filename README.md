@@ -23,7 +23,7 @@ Example: `1.12.2`
 
 ```sh
 mkdir -p world
-# if you forgot this step, run `sudo chown -R $UID:$GID`
+# if you forgot this step, run `sudo chown -R $UID:$GID world`
 ```
 
 ### 3. Confirm EULA
@@ -36,6 +36,13 @@ echo 'eula=true' > eula.txt
 
 ```sh
 sudo docker-compose up --build -d
+```
+
+### (Optional) Edit `server.properties`
+
+```sh
+# edit and restart
+sudo docker-compose restart
 ```
 
 ## Build Server (Forge)
@@ -88,12 +95,13 @@ sudo docker-compose stop
 sudo docker-compose start
 ```
 
-## Backup
+## Backup world data with Git
 
 ```sh
-# backup with git
+# create repository `yourname/my-server`
 git init
 git remote add origin https://github.com/yourname/my-server
+echo -e '/logs/\n/crash-reports/' >> '.gitignore'
 git add .
 git commit -m 'create server'
 git push --set-upstream master origin
