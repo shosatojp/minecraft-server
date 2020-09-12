@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VERSION: "1.16.3"
+        VERSION: "forge-1.12.2"
     volumes:
       - ./:/home/
       - /etc/passwd:/etc/passwd:ro
@@ -14,5 +14,5 @@ services:
     ports:
       - "25565:25565"
     environment:
-      - "Xms=4g"
-      - "Xmx=16g"
+      - "Xms=2g"
+      - "Xmx=4g"
