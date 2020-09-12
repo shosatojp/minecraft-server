@@ -11,66 +11,27 @@ cd ./my-server
 rm -rf .git .gitignore
 ```
 
-## Build Server (Vanilla)
+## Build Server
 
 ### 1. Edit `docker-compose.yml` to specify **VERSION** (and memory usage).
 
 Available versions can found in [versions.txt](./versions.txt)
 
-Example: `1.12.2`
+Example: `1.16.3` , `forge-1.16.3`
 
-### 2. Make world directory
-
-```sh
-mkdir -p world
-# if you forgot this step, run `sudo chown -R $UID:$GID world`
-```
-
-### 3. Agree EULA
+### (Optional) Copy mods into `mods` directory
 
 ```sh
-echo 'eula=true' > eula.txt
+mkdir mods
 ```
 
-### 4. Start Server
-
-```sh
-sudo docker-compose up --build -d
-```
-
-### (Optional) Edit `server.properties`
-
-```sh
-# edit and restart
-sudo docker-compose restart
-```
-
-## Build Server (Forge)
-
-### 1. Edit `docker-compose.yml` to specify **version** (and memory usage).
-
-Available versions can found in [versions.txt](./versions.txt)
-
-Example: 
-`forge-1.12.2`
-
-### 2. Make `world` and `mods` directory
-
-```sh
-mkdir -p world mods
-# if you forgot this step, run `sudo chown -R $UID:$GID world mods`
-```
-
-
-### 3. Copy mods into `mods` directory
-
-### 4. Agree EULA
+### 2. Agree EULA
 
 ```sh
 echo 'eula=true' > eula.txt
 ```
 
-### 5. Start Server
+### 3. Start Server
 
 ```sh
 sudo docker-compose up --build -d

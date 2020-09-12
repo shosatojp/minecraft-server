@@ -14,5 +14,6 @@ RUN if [ "$(echo $VERSION | grep forge)" ];then                                 
     fi
 
 WORKDIR /home
-CMD java -Xms${Xms} -Xmx${Xmx} -jar /data/server.jar nogui
+CMD mkdir -p world && \
+    java -Xms${Xms} -Xmx${Xmx} -jar /data/server.jar nogui
 EXPOSE 25565

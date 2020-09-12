@@ -10,7 +10,7 @@ services:
       - ./:/home/
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
-    user: "${SUDO_UID:-$UID}:${SUDO_GID:-$GID}"
+    user: "${SUDO_UID}:${SUDO_GID}"
     ports:
       - "25565:25565"
     environment:
