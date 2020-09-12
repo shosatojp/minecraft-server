@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VERSION: "forge-1.12.2"
+        VERSION: "1.16.3"
     volumes:
       - ./:/home/
       - /etc/passwd:/etc/passwd:ro
