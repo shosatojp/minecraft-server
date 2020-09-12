@@ -16,3 +16,5 @@ services:
     environment:
       - "Xms=2g"
       - "Xmx=4g"
+    stdin_open: true
+    tty: true
