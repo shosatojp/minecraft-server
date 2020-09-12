@@ -26,7 +26,7 @@ mkdir -p world
 # if you forgot this step, run `sudo chown -R $UID:$GID world`
 ```
 
-### 3. Confirm EULA
+### 3. Agree EULA
 
 ```sh
 echo 'eula=true' > eula.txt
@@ -64,7 +64,7 @@ mkdir -p world mods
 
 ### 3. Copy mods into `mods` directory
 
-### 4. Confirm EULA
+### 4. Agree EULA
 
 ```sh
 echo 'eula=true' > eula.txt
