@@ -7,7 +7,7 @@ services:
       args:
         VERSION: "1.16.3"
     volumes:
-      - ./:/home/
+      - ./server/:/home/
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
     user: "${SUDO_UID}:${SUDO_GID}"
@@ -18,3 +18,13 @@ services:
       - "Xmx=4g"
     stdin_open: true
     tty: true
+
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./server/mods:/pub/mods:ro
+      - ./server/config:/pub/config:ro
+    ports:
+      - "8081:8080"

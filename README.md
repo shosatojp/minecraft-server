@@ -22,13 +22,13 @@ Example: `1.16.3` , `forge-1.16.3`
 ### (Optional) Copy mods into `mods` directory
 
 ```sh
-mkdir mods
+mkdir -p server/mods
 ```
 
 ### 2. Agree EULA
 
 ```sh
-echo 'eula=true' > eula.txt
+echo 'eula=true' > server/eula.txt
 ```
 
 ### 3. Start Server
@@ -64,7 +64,7 @@ sudo docker-compose start
 # create repository `yourname/my-server`
 git init
 git remote add origin https://github.com/yourname/my-server
-echo -e '/logs/\n/crash-reports/' >> '.gitignore'
+echo -e '/server/logs/\n/server/crash-reports/' >> '.gitignore'
 git add .
 git commit -m 'create server'
 git push --set-upstream master origin
