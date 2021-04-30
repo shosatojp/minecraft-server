@@ -6,13 +6,11 @@ RUN apk update && \
 
 WORKDIR /data
 COPY ./versions.txt .
-RUN JAR="$(cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $2}')"
-RUN if [ "$(echo $VERSION | grep forge)" ];then\
-        wget -O installer.jar $JAR;\
-        java -jar installer.jar nogui -installServer ./server.jar; \
-        rm installer.jar;\
-    else \
-        wget -O server.jar $JAR \
+RUN wget -O server.jar "$(cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $2}')"
+RUN if [ "$(echo $VERSION | grep forge)" ];then                                                             \
+        wget -O installer.jar "$(cat versions.txt | grep -E "^${VERSION} " | head -1 | awk '{print $3}')";  \
+        java -jar installer.jar nogui -installServer;                                                       \
+        rm installer.jar;                                                                                   \
     fi
 
 WORKDIR /home
