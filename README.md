@@ -28,6 +28,7 @@ mkdir -p server/mods
 ### 2. Agree EULA
 
 ```sh
+mkdir -p server
 echo 'eula=true' > server/eula.txt
 ```
 

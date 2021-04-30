@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VERSION: "1.16.3"
+        VERSION: "forge-1.12.2"
     volumes:
       - ./server/:/home/
       - /etc/passwd:/etc/passwd:ro
@@ -14,17 +14,17 @@ services:
     ports:
       - "25565:25565"
     environment:
-      - "Xms=2g"
-      - "Xmx=4g"
+      - "Xms=6g"
+      - "Xmx=12g"
     stdin_open: true
     tty: true
 
-  nginx:
-    build:
-      context: nginx
-      dockerfile: Dockerfile
-    volumes:
-      - ./server/mods:/pub/mods:ro
-      - ./server/config:/pub/config:ro
-    ports:
-      - "8081:8080"
+#   nginx:
+#     build:
+#       context: nginx
+#       dockerfile: Dockerfile
+#     volumes:
+#       - ./server/mods:/pub/mods:ro
+#       - ./server/config:/pub/config:ro
+#     ports:
+#       - "8081:8080"
