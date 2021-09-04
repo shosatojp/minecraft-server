@@ -3,9 +3,9 @@ services:
   minecraft:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: run.dockerfile
       args:
-        VERSION: "forge-1.12.2"
+        VERSION: "forge-1.17.1"
     volumes:
       - ./server/:/home/
       - /etc/passwd:/etc/passwd:ro

@@ -1,6 +1,7 @@
 import re
 import requests
 import bs4
+import sys
 
 
 def get_download_link(version: str) -> str:
@@ -18,16 +19,16 @@ def get_versions():
                 in doc.select('.versions div:nth-child(1) .item') if e.get('id')]
 
     for version in versions:
-        print(version)
+        print(version, file=sys.stderr)
         link = get_download_link(version)
         if link:
             print(f'{version} {link}')
 
 
 def get_forge_version(version: str):
-    print(version)
+    print(version, file=sys.stderr)
     res = requests.get(f'http://files.minecraftforge.net/net/minecraftforge/forge/index_{version}.html')
-    print(res.status_code)
+    print(res.status_code, file=sys.stderr)
     html = res.text
     doc = bs4.BeautifulSoup(html, 'html.parser')
     installer = doc.select_one('.link > a[title=Installer]')
@@ -44,7 +45,7 @@ def get_forge_versions():
     versions = [e.text.strip() for e
                 in doc.select('.li-version-list li')]
     for version in versions:
-        print(version)
+        print(version, file=sys.stderr)
         installer = get_forge_version(version)
         if installer:
             print(f'forge-{version} {installer}\n')
