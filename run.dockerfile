@@ -12,7 +12,6 @@ COPY ./start-run.sh .
 
 
 WORKDIR /home
-CMD sleep 100000000
 CMD mkdir -p world && \
     cp -r /data/* /home/ && \
     ./start-run.sh
