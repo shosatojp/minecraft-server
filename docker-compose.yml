@@ -3,28 +3,26 @@ services:
   minecraft:
     build:
       context: .
-      dockerfile: run.dockerfile
       args:
-        VERSION: "forge-1.17.1"
+        VERSION: "forge-1.7.10" # !!!EDIT (e.g. 1.16.5, forge-1.12.2) !!!
     volumes:
       - ./server/:/home/
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
-    user: "${SUDO_UID}:${SUDO_GID}"
+    user: "nobody:nogroup" # Uncomment if windows
     ports:
       - "25565:25565"
     environment:
-      - "Xms=6g"
-      - "Xmx=12g"
+      Xms: "6g" # memory min
+      Xmx: "12g" # memory max
+      eula: "true" # !!!EDIT (true)!!!
     stdin_open: true
     tty: true
 
-#   nginx:
-#     build:
-#       context: nginx
-#       dockerfile: Dockerfile
-#     volumes:
-#       - ./server/mods:/pub/mods:ro
-#       - ./server/config:/pub/config:ro
-#     ports:
-#       - "8081:8080"
+  # nginx:
+  #   build:
+  #     context: nginx
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./server/mods:/pub/mods:ro
+  #     - ./server/config:/pub/config:ro
+  #   ports:
+  #     - "8081:8080"

@@ -13,23 +13,34 @@ rm -rf .git .gitignore
 
 ## Build Server
 
-### 1. Edit `docker-compose.yml` to specify **VERSION** (and memory usage).
+### 1. Edit `docker-compose.yml` to specify **VERSION** and agree to **eula**
 
-Available versions can be found in [versions.txt](./versions.txt)
+Available versions can be found in [versions.json](./versions.json)
 
-Example: `1.16.3` , `forge-1.16.3`
+Example: 
+```
+VERSION: "1.17.1"
+VERSION: "forge-1.12.2"
+```
+
+```
+eula: "true"
+```
+
+### 2. Make server directory
+
+change owner to runtime user & group as you like.
+
+```sh
+mkdir -p server
+sudo chown -R nobody:nogroup server
+```
 
 ### (Optional) Copy mods into `mods` directory
 
 ```sh
 mkdir -p server/mods
-```
-
-### 2. Agree EULA
-
-```sh
-mkdir -p server
-echo 'eula=true' > server/eula.txt
+sudo chown -R nobody:nogroup server
 ```
 
 ### 3. Start Server
@@ -57,7 +68,17 @@ sudo docker-compose stop
 sudo docker-compose start
 ```
 
-## Backup world data with Git
+## Trouble Shoot
+
+### `cannot create directory 'world': Permission denied`
+
+confirm owner of the `server` directory is run time user and group
+
+```sh
+sudo chown -R nobody:nogroup server/
+```
+
+<!-- ## Backup world data with Git
 
 * backup
 
@@ -77,4 +98,4 @@ git push --set-upstream master origin
 git clone https://github.com/yourname/my-server
 cd ./my-server
 sudo docker-compose up --build -d
-```
+``` -->

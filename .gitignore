@@ -1,2 +1,5 @@
 /.vscode/
 /server/
+/cache/
+__pycache__/
+domains.json
