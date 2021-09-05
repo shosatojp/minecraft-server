@@ -6,7 +6,7 @@
 
 ## Build Server
 
-### 0. Prerequests
+### 0. Prerequirements
 
 - Docker
 - docker-compose
