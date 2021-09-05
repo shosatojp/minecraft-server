@@ -20,16 +20,28 @@ cd ./my-server
 rm -rf .git .gitignore
 ```
 
-### 2. Edit `docker-compose.yml` to specify **VERSION** and agree to **eula**
+### 2. Edit `docker-compose.yml` to specify **version** and agree to **eula**
+
+specify **version**
 
 Available versions can be found in [versions.json](./versions.json)
 
-Example: 
 ```yml
+LOADER: "vanilla"
 VERSION: "1.17.1"
-VERSION: "forge-1.12.2"
-VERSION: "fabric-1.16.5"
 ```
+
+```yml
+LOADER: "forge"
+VERSION: "1.12.2"
+```
+
+```yml
+LOADER: "fabric"
+VERSION: "1.16.5"
+```
+
+agree to **eula**
 
 ```yml
 eula: "true"
