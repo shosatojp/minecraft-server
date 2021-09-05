@@ -8,7 +8,7 @@ RUN mkdir -p /run/nginx /pub
 RUN rm -f /var/log/nginx/access.log && \
     ln -s /dev/stdout /var/log/nginx/access.log
 
-CMD zip /pub/mods.zip /pub/mods && \
-    zip /pub/config.zip /pub/config && \
+CMD zip -r /pub/mods.zip /pub/mods && \
+    zip -r /pub/config.zip /pub/config && \
     nginx -g "daemon off;"
 EXPOSE 8080
