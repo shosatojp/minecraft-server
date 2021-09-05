@@ -13,7 +13,7 @@ services:
     environment:
       Xms: "6g" # memory min
       Xmx: "12g" # memory max
-      eula: "true" # !!!EDIT (true)!!!
+      eula: "true" # !!!EDIT ("true")!!!
     stdin_open: true
     tty: true
 
