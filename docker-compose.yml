@@ -4,7 +4,8 @@ services:
     build:
       context: .
       args:
-        VERSION: "1.17.1" # !!!EDIT (e.g. 1.16.5, forge-1.12.2) !!!
+        LOADER: "vanilla" # vanilla, forge, fabric
+        VERSION: "1.17.1" # 1.16.5, 1.12.2
     volumes:
       - ./server/:/home/
     user: "nobody:nogroup" # Uncomment if windows
@@ -26,4 +27,4 @@ services:
       - ./server/mods:/pub/mods:ro
       - ./server/config:/pub/config:ro
     ports:
-      - "80:8080"
+      - "8080:8080"
