@@ -5,8 +5,6 @@ RUN apt-get update && \
 
 ARG VERSION
 ENV VERSION=$VERSION
-ARG LOADER
-ENV LOADER=$LOADER
 
 WORKDIR /data
 COPY ./versions.json .

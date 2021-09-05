@@ -27,18 +27,15 @@ specify **version**
 Available versions can be found in [versions.json](./versions.json)
 
 ```yml
-LOADER: "vanilla"
 VERSION: "1.17.1"
 ```
 
 ```yml
-LOADER: "forge"
-VERSION: "1.12.2"
+VERSION: "forge-1.12.2"
 ```
 
 ```yml
-LOADER: "fabric"
-VERSION: "1.16.5"
+VERSION: "fabric-1.16.5"
 ```
 
 agree to **eula**
@@ -120,7 +117,7 @@ whitelist add hoge
 ### `cannot create directory 'world': Permission denied`
 ### `/data/start.sh: line 11: eula.txt: Permission denied`
 
-confirm owner of the `server` directory is run time user and group
+confirm owner of the `server` directory is runtime user and group
 
 ```sh
 sudo chown -R nobody:nogroup server/

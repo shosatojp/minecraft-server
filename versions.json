@@ -632,7 +632,97 @@
         "java": 8
     },
     {
-        "version": "fabric",
+        "version": "fabric-1.17.1",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 16
+    },
+    {
+        "version": "fabric-1.17",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 16
+    },
+    {
+        "version": "fabric-1.16.5",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.16.4",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.16.3",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.16.2",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.16.1",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.16",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.15.2",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.15.1",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.15",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.14.4",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.14.3",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.14.2",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.14.1",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
+    },
+    {
+        "version": "fabric-1.14",
         "type": "fabric",
         "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
         "java": 8

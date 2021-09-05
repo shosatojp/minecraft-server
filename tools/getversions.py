@@ -110,12 +110,27 @@ def get_fabric_versions():
 
     installer = jsonobj[0]['url']
 
-    yield {
-        'version': f'fabric',
-        'type': 'fabric',
-        'installer': installer,
-        'java': 8,
-    }
+    src = get_html('https://meta.fabricmc.net/v1/versions/game')
+    games = filter(lambda e: e['stable'], json.loads(src))
+
+    for game in games:
+        version = game["version"]
+        if packaging.version.Version(version) >= packaging.version.Version('1.17'):
+            termcolor.cprint(f'fabric-{version} run {installer}', 'green')
+            yield {
+                'version': f'fabric-{version}',
+                'type': 'fabric',
+                'installer': installer,
+                'java': 16,
+            }
+        else:
+            termcolor.cprint(f'fabric-{version} run {installer}', 'green')
+            yield {
+                'version': f'fabric-{version}',
+                'type': 'fabric',
+                'installer': installer,
+                'java': 8,
+            }
 
 
 versions_file = 'versions.json'

@@ -31,7 +31,7 @@ case $TYPE in
         ;;
     fabric)
         wget -O installer.jar $INSTALLER
-        java -jar installer.jar server -mcversion $VERSION -downloadMinecraft
+        java -jar installer.jar server -mcversion ${VERSION#fabric-} -downloadMinecraft
         rm installer.jar
         mv server.jar vanilla.jar
         mv fabric-server-launch.jar server.jar

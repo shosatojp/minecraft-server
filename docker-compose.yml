@@ -4,17 +4,16 @@ services:
     build:
       context: .
       args:
-        LOADER: "vanilla" # vanilla, forge, fabric
-        VERSION: "1.17.1" # 1.16.5, 1.12.2
+        VERSION: "1.17.1" # 1.16.5, forge-1.12.2, fabric-1.17.1
     volumes:
       - ./server/:/home/
     user: "nobody:nogroup" # Uncomment if windows
     ports:
       - "25565:25565"
     environment:
-      Xms: "6g" # memory min
-      Xmx: "12g" # memory max
-      eula: "true" # !!!EDIT ("true")!!!
+      Xms: "500m" # memory min
+      Xmx: "1g" # memory max
+      eula: "false" # !!!EDIT ("true")!!!
     stdin_open: true
     tty: true
     restart: unless-stopped
