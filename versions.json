@@ -630,5 +630,11 @@
         "universal": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.5.2-7.8.1.738/forge-1.5.2-7.8.1.738-universal.zip",
         "installer": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.5.2-7.8.1.738/forge-1.5.2-7.8.1.738-installer.jar",
         "java": 8
+    },
+    {
+        "version": "fabric",
+        "type": "fabric",
+        "installer": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar",
+        "java": 8
     }
 ]

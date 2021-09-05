@@ -5,9 +5,12 @@ RUN apt-get update && \
 
 ARG VERSION
 ENV VERSION=$VERSION
+ARG LOADER
+ENV LOADER=$LOADER
 
 WORKDIR /data
 COPY ./versions.json .
+COPY ./scripts/functions.sh .
 
 # install jre
 COPY ./scripts/java.sh .

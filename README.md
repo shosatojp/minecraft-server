@@ -2,6 +2,7 @@
 
 * vanilla 1.2.1 - 1.17.1
 * forge 1.5.2 - 1.17.1
+* fabric 1.14 -
 
 ## Build Server
 
@@ -27,6 +28,7 @@ Example:
 ```yml
 VERSION: "1.17.1"
 VERSION: "forge-1.12.2"
+VERSION: "fabric-1.16.5"
 ```
 
 ```yml
@@ -104,6 +106,7 @@ whitelist add hoge
 ## Trouble shootings
 
 ### `cannot create directory 'world': Permission denied`
+### `/data/start.sh: line 11: eula.txt: Permission denied`
 
 confirm owner of the `server` directory is run time user and group
 

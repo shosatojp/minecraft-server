@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-CONF=$(cat /data/versions.json | jq ".[] | select(.version == \"$VERSION\")")
+source /data/functions.sh
+
+CONF=$(get_conf)
 TYPE=$(echo $CONF | jq -r '.type')
 
 cd /home/
@@ -24,5 +26,9 @@ case $TYPE in
         cp -r /data/* /home/
         echo "$JAVA_OPTIONS" > user_jvm_args.txt
         ./run.sh
+        ;;
+    fabric)
+        cp -r /data/* /home/
+        java $JAVA_OPTIONS -jar /data/server.jar
         ;;
 esac

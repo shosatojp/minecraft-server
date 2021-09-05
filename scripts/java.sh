@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-CONF=$(cat /data/versions.json | jq ".[] | select(.version == \"$VERSION\")")
+source /data/functions.sh
+
+CONF=$(get_conf)
 JAVA_VERSION=$(echo $CONF | jq -r '.java')
 
-apt-get -y install openjdk-${JAVA_VERSION}-jre
+apt-get -y install openjdk-${JAVA_VERSION}-jre-headless

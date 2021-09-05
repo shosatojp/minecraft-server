@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-CONF=$(cat /data/versions.json | jq ".[] | select(.version == \"$VERSION\")")
+source /data/functions.sh
+
+CONF=$(get_conf)
 TYPE=$(echo $CONF | jq -r '.type')
 SERVER=$(echo $CONF | jq -r '.server')
 INSTALLER=$(echo $CONF | jq -r '.installer')
@@ -25,5 +27,14 @@ case $TYPE in
     forge-run)
         wget -O installer.jar $INSTALLER
         java -jar installer.jar nogui --installServer
+        rm installer.jar
+        ;;
+    fabric)
+        wget -O installer.jar $INSTALLER
+        java -jar installer.jar server -mcversion $VERSION -downloadMinecraft
+        rm installer.jar
+        mv server.jar vanilla.jar
+        mv fabric-server-launch.jar server.jar
+        echo "serverJar=vanilla.jar" > fabric-server-launcher.properties
         ;;
 esac

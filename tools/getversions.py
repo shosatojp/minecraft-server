@@ -33,7 +33,7 @@ def get_versions():
         termcolor.cprint(version, 'grey', file=sys.stderr)
         server = get_download_link(version)
         if server:
-            if packaging.version.Version(version) > packaging.version.Version('1.17'):
+            if packaging.version.Version(version) >= packaging.version.Version('1.17'):
                 termcolor.cprint(f'{version} {server}', 'green')
                 yield {
                     'version': f'{version}',
@@ -75,7 +75,7 @@ def get_forge_versions():
     for version in versions:
         installer, universal = get_forge_version(version)
 
-        if packaging.version.Version(version) > packaging.version.Version('1.17'):
+        if packaging.version.Version(version) >= packaging.version.Version('1.17'):
             termcolor.cprint(f'forge-{version} run {installer} {universal}', 'green')
             yield {
                 'version': f'forge-{version}',
@@ -104,8 +104,22 @@ def get_forge_versions():
             termcolor.cprint(f'nofile, skip. {version}', 'yellow', file=sys.stderr)
 
 
+def get_fabric_versions():
+    src = get_html('https://meta.fabricmc.net/v2/versions/installer')
+    jsonobj = json.loads(src)
+
+    installer = jsonobj[0]['url']
+
+    yield {
+        'version': f'fabric',
+        'type': 'fabric',
+        'installer': installer,
+        'java': 8,
+    }
+
+
 versions_file = 'versions.json'
-versions = [*get_versions(), *get_forge_versions()]
+versions = [*get_versions(), *get_forge_versions(), *get_fabric_versions()]
 with open(versions_file, 'wt', encoding='utf-8') as f:
     json.dump(versions, f, ensure_ascii=False, indent=4)
 print(f'dumped to {versions_file}')
