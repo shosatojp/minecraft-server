@@ -4,16 +4,16 @@ services:
     build:
       context: .
       args:
-        VERSION: "1.17.1" # 1.16.5, forge-1.12.2, fabric-1.17.1
+        VERSION: "forge-1.17.1" # 1.16.5, forge-1.12.2, fabric-1.17.1
     volumes:
       - ./server/:/home/
     user: "nobody:nogroup" # Uncomment if windows
     ports:
       - "25565:25565"
     environment:
-      Xms: "500m" # memory min
-      Xmx: "1g" # memory max
-      eula: "false" # !!!EDIT ("true")!!!
+      Xms: "6g" # memory min
+      Xmx: "12g" # memory max
+      eula: "true" # !!!EDIT ("true")!!!
     stdin_open: true
     tty: true
     restart: unless-stopped
@@ -23,7 +23,6 @@ services:
       context: nginx
       dockerfile: Dockerfile
     volumes:
-      - ./server/mods:/pub/mods:ro
-      - ./server/config:/pub/config:ro
+      - ./server/:/data/:ro
     ports:
       - "8080:8080"
