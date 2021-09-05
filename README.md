@@ -111,7 +111,7 @@ confirm owner of the `server` directory is run time user and group
 sudo chown -R nobody:nogroup server/
 ```
 
-### `You need to agree to the EULA in order to run the server.`
+### `You need to agree the EULA in order to run the server.`
 
 check your `docker-compose.yml` and confirm that `eula: "true"`.
 

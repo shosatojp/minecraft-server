@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        VERSION: "forge-1.7.10" # !!!EDIT (e.g. 1.16.5, forge-1.12.2) !!!
+        VERSION: "1.17.1" # !!!EDIT (e.g. 1.16.5, forge-1.12.2) !!!
     volumes:
       - ./server/:/home/
     user: "nobody:nogroup" # Uncomment if windows
@@ -16,6 +16,7 @@ services:
       eula: "true" # !!!EDIT ("true")!!!
     stdin_open: true
     tty: true
+    restart: unless-stopped
 
   # nginx:
   #   build:
