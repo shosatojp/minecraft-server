@@ -1,8 +1,7 @@
 # Dockerized Minecraft Server
 
-* vanilla or forge server
-* 1.2.1 - 1.17.1
-
+* vanilla 1.2.1 - 1.17.1
+* forge 1.5.2 - 1.17.1
 
 ## Build Server
 
