@@ -18,12 +18,12 @@ services:
     tty: true
     restart: unless-stopped
 
-  # nginx:
-  #   build:
-  #     context: nginx
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./server/mods:/pub/mods:ro
-  #     - ./server/config:/pub/config:ro
-  #   ports:
-  #     - "8081:8080"
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./server/mods:/pub/mods:ro
+      - ./server/config:/pub/config:ro
+    ports:
+      - "80:8080"
