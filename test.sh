@@ -9,7 +9,7 @@ function test_version() {
     docker build --build-arg VERSION=$VERSION -t $TAG .
     docker kill $NAME
     docker rm $NAME
-    docker run --name $NAME -p 127.0.0.1:25565:25565 -e eula=true $TAG
+    docker run -d --name $NAME -p 127.0.0.1:25565:25565 -e eula=true $TAG
 
     echo "=== waiting for server start up ==="
 
@@ -17,7 +17,7 @@ function test_version() {
         sleep 3
 
         echo "=== checking for server start up: $i ==="
-        mcstatus localhost:25565 status &> /dev/null
+        mcstatus localhost:25565 status
 
         if [[ $? == 0 ]];then
             echo "=== server correctly started up ==="
