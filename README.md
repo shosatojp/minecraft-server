@@ -1,8 +1,11 @@
+
 # Dockerized Minecraft Server
 
 * vanilla 1.2.1 - 1.17.1
 * forge 1.5.2 - 1.17.1
 * fabric 1.14 -
+
+![](https://github.com/shosatojp/minecraft-server/actions/workflows/main.yml/badge.svg)
 
 ## Build Server
 
