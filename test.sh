@@ -9,7 +9,7 @@ function test_version() {
     docker build --build-arg VERSION=$VERSION -t $TAG .
     docker kill $NAME
     docker rm $NAME
-    docker run -d --name $NAME -p 127.0.0.1:25565:25565 -e eula=true $TAG
+    docker run --name $NAME -p 127.0.0.1:25565:25565 -e eula=true $TAG
 
     echo "=== waiting for server start up ==="
 
