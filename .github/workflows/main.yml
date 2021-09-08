@@ -15,6 +15,15 @@ jobs:
         version: [1.17.1, 1.16.5, forge-1.17.1, fabric-1.17.1]
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: install mcstatus
+        run: |
+          python -m pip install --upgrade pip
+          pip install mcstatus
 
       - name: Run a one-line script
         run: ./test.sh ${{ matrix.version }}
