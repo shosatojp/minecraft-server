@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [1.17.1, 1.16.5, forge-1.17.1, fabric-1.17.1]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: ./test.sh ${{ matrix.version }}
