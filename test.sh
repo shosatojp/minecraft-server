@@ -14,7 +14,7 @@ function test_version() {
     echo "=== waiting for server start up ==="
 
     for i in `seq 1 60`;do
-        sleep 1
+        sleep 3
 
         echo "=== checking for server start up: $i ==="
         mcstatus localhost:25565 status &> /dev/null
