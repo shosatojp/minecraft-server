@@ -10,6 +10,7 @@ function test_version() {
     docker kill $NAME
     docker rm $NAME
     docker run -d --name $NAME -p 127.0.0.1:25565:25565 -e eula=true $TAG
+    docker logs -f $NAME &
 
     echo "=== waiting for server start up ==="
 
