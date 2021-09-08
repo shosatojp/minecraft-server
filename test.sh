@@ -17,7 +17,7 @@ function test_version() {
         sleep 3
 
         echo "=== checking for server start up: $i ==="
-        mcstatus localhost:25565 status
+        mcstatus localhost:25565 status &> /dev/null
 
         if [[ $? == 0 ]];then
             echo "=== server correctly started up ==="
