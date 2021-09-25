@@ -12,6 +12,11 @@ JAVA_OPTIONS="${Xms:+-Xms$Xms} ${Xmx:+-Xmx$Xmx}"
 
 echo "eula=$eula" > eula.txt
 
+if [[ -f /home/world/session.lock ]];then
+    echo "Another minecraft instance found for this world"
+    exit 1
+fi
+
 case $TYPE in
     vanilla)
         java $JAVA_OPTIONS -jar /data/server.jar nogui
